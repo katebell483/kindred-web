@@ -6,9 +6,16 @@ import operator
 from operator import itemgetter
 
 app = Flask(__name__)
+"""
 app.config['MYSQL_HOST'] = '127.0.0.1'
 app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_DB'] = 'kindred'
+"""
+app.config['MYSQL_HOST'] = 'us-cdbr-iron-east-05.cleardb.net'
+app.config['MYSQL_DB'] = 'heroku_1d4c5e991701de4'
+app.config['MYSQL_USER'] = 'b44770823be61d'
+app.config['MYSQL_PASSWORD'] = '576610ef'
+
 mysql = MySQL(app)
 
 @app.route("/")
