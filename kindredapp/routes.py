@@ -53,43 +53,23 @@ def getDevicesByStudent(student_name):
 @app.route("/devices")
 def getDevices():
 
-    # is this limited by student?
-    student_name = request.args.get('student_name')
     limit = request.args.get('limit')
 
     # limit default is 5
     if(limit is None):
-        limit = 5
+        limit = 100
     
-    # get all student devices
-    if(student_name is not None):
-        devices = getDevicesByStudent(student_name, limit)
-    else:    
-        devices = getAllDevices(limit)
+    devices = getAllDevices(limit)
     
-
-    # set up response data
-    response = {}
-   
-    # TODO: this should be real data 
-    requestInfo = {}
-    requestInfo["status"] = "200 OK";
-    requestInfo["request type"] = "GET"
-    
-    response["request info"] = requestInfo;
-    
-    deviceInfo = []
     for device in devices:    
 
         data = {}
-        data["device_uuid"] = device[2]
-        data["device_msg"] = device[3]
+        data["device_uuid"] = device[3]
+        data["device_msg"] = device[5]
         data["device_label"] = device[4]
-        data["device_icon"] = device[5]
+        data["device_icon"] = device[6]
         data["student_name"] = device[0]
-        deviceInfo.append(data) 
-
-    response["device info"] = deviceInfo;
+        response.append(data) 
 
     return jsonify(response)
 
