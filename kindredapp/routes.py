@@ -205,7 +205,7 @@ def getAllDevices(limit):
 
 def getDevicesByStudent(student_name, limit):
     cur = mysql.connection.cursor()
-    sql_statement = "select devices.* from devices, students where students.student_name = '%s' and students.id = devices.student_id limit %s" % (student_name, limit);
+    sql_statement = "select students.student_name, devices.* from devices, students where students.student_name = '%s' and students.id = devices.student_id limit %s" % (student_name, limit);
     cur.execute(sql_statement)
     return cur.fetchall()
 
