@@ -41,10 +41,10 @@ def getDevicesByStudent(student_name):
     for device in devices:    
 
         data = {}
-        data["device_uuid"] = device[2]
-        data["device_msg"] = device[3]
+        data["device_uuid"] = device[3]
+        data["device_msg"] = device[5]
         data["device_label"] = device[4]
-        data["device_icon"] = device[5]
+        data["device_icon"] = device[6]
         data["student_name"] = device[0]
         response.append(data) 
 
