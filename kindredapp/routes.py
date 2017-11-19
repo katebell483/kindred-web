@@ -251,3 +251,5 @@ def deleteAllStudentDevices(student_name):
     cur.execute(sql_statement); 
     conn.commit()
 
+if __name__ == "__main__":
+    app.run(host='0.0.0.0')
