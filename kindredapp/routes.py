@@ -85,6 +85,7 @@ def getDevices():
         data["device_msg"] = device[3]
         data["device_label"] = device[4]
         data["device_icon"] = device[5]
+        data["student_name"] = device[0]
         deviceInfo.append(data) 
 
     response["device info"] = deviceInfo;
