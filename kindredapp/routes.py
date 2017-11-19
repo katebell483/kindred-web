@@ -45,6 +45,7 @@ def getDevicesByStudent(student_name):
         data["device_msg"] = device[3]
         data["device_label"] = device[4]
         data["device_icon"] = device[5]
+        data["student_name"] = device[0]
         response.append(data) 
 
     return jsonify(response)
